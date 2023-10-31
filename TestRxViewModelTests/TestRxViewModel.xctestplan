@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "B38E828C-A650-455C-B08D-3485552C7EA9",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:TestRxViewModel.xcodeproj",
+        "identifier" : "38B751022AEB890A002249AF",
+        "name" : "TestRxViewModelTests"
+      }
+    }
+  ],
+  "version" : 1
+}
