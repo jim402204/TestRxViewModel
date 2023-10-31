@@ -1,0 +1,6 @@
+framework module Pods_TestRxViewModel {
+  umbrella header "Pods-TestRxViewModel-umbrella.h"
+
+  export *
+  module * { export * }
+}
