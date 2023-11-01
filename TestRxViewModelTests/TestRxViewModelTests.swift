@@ -12,12 +12,6 @@ import RxSwift
 import RxCocoa
 import RxTest
 
-class APIStub: APIService {
-    func login() -> RxSwift.Single<Bool> {
-        Single.just(true)
-    }
-}
-
 final class TestRxViewModelTests: XCTestCase {
     
     var sut: LoginViewModel!

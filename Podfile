@@ -12,6 +12,7 @@ def shared_pods
   # MVVM架構
   pod 'RxSwift', '6.2.0'
   pod 'RxCocoa', '6.2.0'
+  pod 'Moya/RxSwift'
   
 end
 

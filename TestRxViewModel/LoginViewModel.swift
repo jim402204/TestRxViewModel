@@ -8,50 +8,7 @@
 
 import Foundation
 import RxSwift
-//import RxRelay
 import RxCocoa
-
-enum InfoType: Equatable {
-case error
-case info
-}
-
-extension String {
-    
-    func trimming() -> String {
-        self.trimmingCharacters(in: .whitespacesAndNewlines)
-    }
-    
-    func matches(pattern: String) -> Bool {
-        return range(of: pattern, options: .regularExpression, range: nil, locale: nil) != nil
-    }
-    
-    /// EMAIL格式即必須要有@gmail.com  、 @yahoo.com.tw等含@的格式 即僅接受字母(a-z)、數字(0-9)和小數點(.)
-    func isEmail() -> Bool {
-        return self.matches(pattern: "^[a-zA-Z0-9.+]+@[a-zA-Z0-9.]+$")
-    }
-    
-    func isPassword() -> Bool {
-        return self.matches(pattern: "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,20}$")
-    }
-}
-
-protocol ViewModelType: AnyObject {
-   associatedtype Input
-   associatedtype Output
-
-   var input: Input { get }
-   var output: Output { get }
-}
-
-protocol APIService {
-    func login() -> Single<Bool>
-}
-
-struct ToastInfo: Equatable {
-    let type: InfoType
-    let text: String
-}
 
 class LoginViewModel: ViewModelType {
     
@@ -72,8 +29,8 @@ class LoginViewModel: ViewModelType {
     var output: Output
     
     
-    init(api: APIService, scheduler: SchedulerType = MainScheduler.instance) {
-
+    init(api: APIServiceProtocol, scheduler: SchedulerType = MainScheduler.instance) {
+        
         let email = BehaviorRelay<String>(value: "")
         let password = BehaviorRelay<String>(value: "")
         
@@ -113,12 +70,13 @@ class LoginViewModel: ViewModelType {
                 return true
             }
             .flatMapLatest { [unowned self] in
-                api.login()
+                api.request(LoginApi.Login(email: "", password: ""))
             }
             .subscribe(onNext: { [weak self] respone in
                 guard let self = self else { return }
                 //                 guard let model = respone.data else { return }
-                
+               
+                dump(respone,name: "LoginApi.Login:")
                 
                 toast.accept((.info, "登入成功！"))
                 toastInfo.accept(ToastInfo(type: .info,text: "登入成功！"))

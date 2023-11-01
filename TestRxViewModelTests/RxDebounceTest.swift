@@ -27,8 +27,8 @@ class RxDebounceTest: XCTestCase {
     func testSuccessfulLoginToast() {
         
         // Arrange
-        let mockAPIService = MockLoginAPI()
-        let viewModel = LoginViewModel(api: mockAPIService, scheduler: scheduler)
+        let mockAPI: APIServiceProtocol = APIStub()
+        let viewModel = LoginViewModel(api: mockAPI, scheduler: scheduler)
         
 //        let toastInfoObserver = scheduler.createObserver(ToastInfo.self)
 //        viewModel.output.toastInfo.bind(to: toastInfoObserver).disposed(by: disposeBag)

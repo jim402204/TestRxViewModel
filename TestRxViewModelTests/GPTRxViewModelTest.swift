@@ -15,13 +15,13 @@ final class GPTRxViewModelTest: XCTestCase {
     var viewModel: LoginViewModel!
     var scheduler: TestScheduler!
     var disposeBag: DisposeBag!
-    var mockAPI: MockLoginAPI!
+    var mockAPI: APIServiceProtocol!
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
         scheduler = TestScheduler(initialClock: 0, resolution: 0.1)
         disposeBag = DisposeBag()
-        mockAPI = MockLoginAPI()
+        mockAPI = APIStub()
         viewModel = LoginViewModel(api: mockAPI, scheduler: scheduler)
     }
 
@@ -124,8 +124,3 @@ final class GPTRxViewModelTest: XCTestCase {
     
 }
 
-class MockLoginAPI: APIService {
-    func login() -> Single<Bool> {
-        return .just(true)
-    }
-}
