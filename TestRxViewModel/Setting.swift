@@ -43,7 +43,20 @@ enum InfoType: Equatable {
 struct ToastInfo: Equatable {
     let type: InfoType
     let text: String
+    
+    enum MagType {
+        case invalidEmail
+        case invalidPassword
+        case success
+    }
+    
+    static func getMsg(_ type: MagType) -> ToastInfo {
+        
+        switch type {
+        case .invalidEmail: return ToastInfo(type: .error, text: "信箱格式錯誤，請重新輸入")
+        case .invalidPassword: return ToastInfo(type: .error, text: "密碼格式錯誤，請重新輸入")
+        case .success: return ToastInfo(type: .info, text: "登入成功！")
+        }
+    }
+    
 }
-
-
-

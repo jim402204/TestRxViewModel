@@ -21,7 +21,6 @@ class LoginViewModel: ViewModelType {
     }
     struct Output {
         let buttonIsEncable: BehaviorRelay<Bool>
-        let toast: PublishRelay<(type: InfoType,text: String)>
         let toastInfo: PublishRelay<ToastInfo>
     }
     
@@ -43,14 +42,12 @@ class LoginViewModel: ViewModelType {
             .disposed(by: disposeBag)
 
         let tapButton = PublishRelay<Void>()
-        let toast = PublishRelay<(type: InfoType,text: String)>()
         let toastInfo = PublishRelay<ToastInfo>()
         
         self.input = Input(email: email, password: password,
                            tapButton: tapButton)
         
         self.output = Output(buttonIsEncable: isEnabledRelay,
-                             toast: toast,
                              toastInfo: toastInfo)
         
         tapButton
@@ -58,12 +55,10 @@ class LoginViewModel: ViewModelType {
             .filter { isEnabledRelay.value }
             .filter { [unowned self] in
                 guard email.value.isEmail() else {
-                    toast.accept((.error, "信箱格式錯誤，請重新輸入"))
                     toastInfo.accept(ToastInfo(type: .error,text: "信箱格式錯誤，請重新輸入"))
                     return false
                 }
                 guard password.value.isPassword() else {
-                    toast.accept((.error, "密碼格式錯誤，請重新輸入"))
                     toastInfo.accept(ToastInfo(type: .error,text: "密碼格式錯誤，請重新輸入"))
                     return false
                 }
@@ -71,6 +66,7 @@ class LoginViewModel: ViewModelType {
             }
             .flatMapLatest { [unowned self] in
                 api.request(LoginApi.Login(email: "", password: ""))
+//                Single.just(true)
             }
             .subscribe(onNext: { [weak self] respone in
                 guard let self = self else { return }
@@ -78,7 +74,6 @@ class LoginViewModel: ViewModelType {
                
                 dump(respone,name: "LoginApi.Login:")
                 
-                toast.accept((.info, "登入成功！"))
                 toastInfo.accept(ToastInfo(type: .info,text: "登入成功！"))
             })
             .disposed(by: disposeBag)

@@ -21,6 +21,7 @@
 		38C6AFFF2AF2329E00ECCD67 /* ApiProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C6AFFE2AF2329E00ECCD67 /* ApiProtocol.swift */; };
 		38C6B0012AF233F900ECCD67 /* LoginApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C6B0002AF233F900ECCD67 /* LoginApi.swift */; };
 		38C6B0062AF23A8500ECCD67 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C6B0052AF23A8500ECCD67 /* Setting.swift */; };
+		38C6B00B2AF38EAE00ECCD67 /* RxBlockingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C6B00A2AF38EAE00ECCD67 /* RxBlockingTest.swift */; };
 		38D9C44B2AEF7B1F00B9D457 /* GPTRxViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D9C44A2AEF7B1F00B9D457 /* GPTRxViewModelTest.swift */; };
 		38D9C44D2AF0935C00B9D457 /* RxDebounceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D9C44C2AF0935C00B9D457 /* RxDebounceTest.swift */; };
 		76745147BFF251A244ECD618 /* Pods_TestRxViewModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5539ACAB94BE3C71760AA5 /* Pods_TestRxViewModel.framework */; };
@@ -58,6 +59,7 @@
 		38C6AFFE2AF2329E00ECCD67 /* ApiProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiProtocol.swift; sourceTree = "<group>"; };
 		38C6B0002AF233F900ECCD67 /* LoginApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApi.swift; sourceTree = "<group>"; };
 		38C6B0052AF23A8500ECCD67 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		38C6B00A2AF38EAE00ECCD67 /* RxBlockingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxBlockingTest.swift; sourceTree = "<group>"; };
 		38D9C44A2AEF7B1F00B9D457 /* GPTRxViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPTRxViewModelTest.swift; sourceTree = "<group>"; };
 		38D9C44C2AF0935C00B9D457 /* RxDebounceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxDebounceTest.swift; sourceTree = "<group>"; };
 		43A4E4370360055CC843FDF9 /* libPods-TestRxViewModelTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TestRxViewModelTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 				38B751072AEB890A002249AF /* TestRxViewModelTests.swift */,
 				38D9C44A2AEF7B1F00B9D457 /* GPTRxViewModelTest.swift */,
 				38D9C44C2AF0935C00B9D457 /* RxDebounceTest.swift */,
+				38C6B00A2AF38EAE00ECCD67 /* RxBlockingTest.swift */,
 			);
 			path = TestRxViewModelTests;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				38D9C44B2AEF7B1F00B9D457 /* GPTRxViewModelTest.swift in Sources */,
 				38D9C44D2AF0935C00B9D457 /* RxDebounceTest.swift in Sources */,
 				38C6AFF92AF0AEBB00ECCD67 /* TestScheduler+Record.swift in Sources */,
+				38C6B00B2AF38EAE00ECCD67 /* RxBlockingTest.swift in Sources */,
 				38B751082AEB890A002249AF /* TestRxViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
